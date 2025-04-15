@@ -11,10 +11,16 @@ config_version=5
 [application]
 
 config/name="Balance"
+run/main_scene="res://Test/test.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[physics]
+
+2d/physics_engine="GodotPhysics2D"
 
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.113665, 0.113665, 0.113665, 1)
