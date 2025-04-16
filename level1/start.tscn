@@ -1,0 +1,152 @@
+[gd_scene load_steps=13 format=3 uid="uid://b8s44isavb62p"]
+
+[ext_resource type="PackedScene" uid="uid://donnippwm4yr4" path="res://common/map.tscn" id="1_ndeu4"]
+[ext_resource type="Script" uid="uid://bx60qlnjs6fu2" path="res://common/player.gd" id="2_fibgb"]
+[ext_resource type="Texture2D" uid="uid://dbkpoa53evlhg" path="res://icon.svg" id="2_idhjr"]
+[ext_resource type="Script" uid="uid://d0yt7pwja52bv" path="res://test/movable.gd" id="3_7k68t"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_fibgb"]
+a = Vector2(-256, -192)
+b = Vector2(256, -192)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_p0clp"]
+a = Vector2(-256, -192)
+b = Vector2(-256, 192)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_gxw1p"]
+a = Vector2(256, -192)
+b = Vector2(256, 192)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_jpvmh"]
+a = Vector2(-256, 192)
+b = Vector2(256, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_idhjr"]
+size = Vector2(20, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7k68t"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fibgb"]
+texture = ExtResource("2_idhjr")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_p0clp"]
+sources/0 = SubResource("TileSetAtlasSource_fibgb")
+
+[node name="Level1" type="Node2D"]
+
+[node name="Map" parent="." instance=ExtResource("1_ndeu4")]
+position = Vector2(581, 348)
+_size = Vector2(512, 384)
+
+[node name="OutTop" parent="Map/Body" index="0"]
+shape = SubResource("SegmentShape2D_fibgb")
+
+[node name="OutLeft" parent="Map/Body" index="1"]
+shape = SubResource("SegmentShape2D_p0clp")
+
+[node name="OutRight" parent="Map/Body" index="2"]
+shape = SubResource("SegmentShape2D_gxw1p")
+
+[node name="OutBottom" parent="Map/Body" index="3"]
+shape = SubResource("SegmentShape2D_jpvmh")
+
+[node name="Pillar" type="StaticBody2D" parent="Map/Body" index="5"]
+position = Vector2(0, 108)
+
+[node name="Shape" type="CollisionShape2D" parent="Map/Body/Pillar"]
+shape = SubResource("RectangleShape2D_idhjr")
+
+[node name="End" type="StaticBody2D" parent="Map/Body" index="6"]
+position = Vector2(32, 127)
+
+[node name="Shape" type="CollisionShape2D" parent="Map/Body/End"]
+shape = SubResource("RectangleShape2D_7k68t")
+
+[node name="Background" type="TileMapLayer" parent="Map/Body" index="7"]
+tile_set = SubResource("TileSet_p0clp")
+
+[node name="Player" type="RigidBody2D" parent="Map"]
+position = Vector2(-172, 135)
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("2_fibgb")
+
+[node name="Sprite" type="Sprite2D" parent="Map/Player"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_idhjr")
+
+[node name="Shape" type="CollisionPolygon2D" parent="Map/Player"]
+scale = Vector2(0.2, 0.2)
+polygon = PackedVector2Array(59.1, -64, -59, -64, -63.8, -59, -64, 61, -60.3, 64, 59.6, 64, 63.9, 59, 64, -61.1)
+
+[node name="Movable" type="Node" parent="Map/Player"]
+script = ExtResource("3_7k68t")
+metadata/_custom_type_script = "uid://d0yt7pwja52bv"
+
+[connection signal="body_entered" from="Map/Player" to="Map/Player" method="_on_body_entered"]
+
+[editable path="Map"]

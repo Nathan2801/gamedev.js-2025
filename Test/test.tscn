@@ -1,61 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://c4h8xdlt3hqcw"]
+[gd_scene load_steps=4 format=3 uid="uid://c4h8xdlt3hqcw"]
 
-[ext_resource type="Script" uid="uid://djnr25bxu4um5" path="res://Test/container.gd" id="1_6uqi0"]
 [ext_resource type="Texture2D" uid="uid://dbkpoa53evlhg" path="res://icon.svg" id="1_37kl0"]
+[ext_resource type="PackedScene" uid="uid://donnippwm4yr4" path="res://common/map.tscn" id="1_65205"]
+[ext_resource type="Script" uid="uid://d0yt7pwja52bv" path="res://test/movable.gd" id="3_jda1s"]
 
-[sub_resource type="Environment" id="Environment_mf4mk"]
+[node name="Test" type="Node2D"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_jda1s"]
-radius = 9.0
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_lxp54"]
-a = Vector2(-250, -250)
-b = Vector2(250, -250)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_jda1s"]
-a = Vector2(-250, -250)
-b = Vector2(-250, 250)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_su4bj"]
-a = Vector2(250, -250)
-b = Vector2(250, 250)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_1ihti"]
-a = Vector2(-250, 250)
-b = Vector2(250, 250)
-
-[node name="Test" type="WorldEnvironment"]
-environment = SubResource("Environment_mf4mk")
-
-[node name="Pivot" type="StaticBody2D" parent="."]
-
-[node name="Shape" type="CollisionShape2D" parent="Pivot"]
+[node name="Map" parent="." instance=ExtResource("1_65205")]
 position = Vector2(573, 327)
-rotation = -1.55101
-shape = SubResource("CircleShape2D_jda1s")
-
-[node name="Container" type="RigidBody2D" parent="."]
-position = Vector2(573, 327)
-script = ExtResource("1_6uqi0")
-_size = null
-
-[node name="OutTop" type="CollisionShape2D" parent="Container"]
-shape = SubResource("SegmentShape2D_lxp54")
-
-[node name="OutLeft" type="CollisionShape2D" parent="Container"]
-shape = SubResource("SegmentShape2D_jda1s")
-
-[node name="OutRight" type="CollisionShape2D" parent="Container"]
-shape = SubResource("SegmentShape2D_su4bj")
-
-[node name="OutBottom" type="CollisionShape2D" parent="Container"]
-shape = SubResource("SegmentShape2D_1ihti")
-
-[node name="Holder" type="CollisionPolygon2D" parent="Container"]
-polygon = PackedVector2Array(10, 0, 7.07107, 7.07107, 6.12303e-16, 10, -7.07107, 7.07107, -10, 1.22461e-15, -7.07107, -7.07107, -1.83691e-15, -10, 7.07107, -7.07107, 15, -3.67382e-15, 10.6066, -10.6066, -2.75536e-15, -15, -10.6066, -10.6066, -15, 1.83691e-15, -10.6066, 10.6066, 9.18455e-16, 15, 10.6066, 10.6066)
+_size = Vector2(500, 500)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 position = Vector2(597, 184)
+input_pickable = true
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
 scale = Vector2(0.5, 0.5)
@@ -64,3 +21,7 @@ texture = ExtResource("1_37kl0")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
 scale = Vector2(0.5, 0.5)
 polygon = PackedVector2Array(59.1, -64, -59, -64, -63.8, -59, -64, 61, -60.3, 64, 59.6, 64, 63.9, 59, 64, -61.1)
+
+[node name="Movable" type="Node" parent="RigidBody2D"]
+script = ExtResource("3_jda1s")
+metadata/_custom_type_script = "uid://d0yt7pwja52bv"
