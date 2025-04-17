@@ -1,28 +1,30 @@
-[gd_scene load_steps=7 format=3 uid="uid://donnippwm4yr4"]
+[gd_scene load_steps=8 format=3 uid="uid://donnippwm4yr4"]
 
 [ext_resource type="Script" uid="uid://cvxkiq3f5es01" path="res://common/map.gd" id="1_fmkex"]
+[ext_resource type="TileSet" uid="uid://clorlg7eawijp" path="res://assets/tileset.tres" id="2_fmkex"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a8so1"]
 radius = 9.0
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_a8so1"]
-a = Vector2(-50, -50)
-b = Vector2(50, -50)
-
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_fmkex"]
-a = Vector2(-50, -50)
-b = Vector2(-50, 50)
+a = Vector2(-32, -32)
+b = Vector2(32, -32)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_sxdkt"]
-a = Vector2(50, -50)
-b = Vector2(50, 50)
+a = Vector2(-32, -32)
+b = Vector2(-32, 32)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_i0ub7"]
-a = Vector2(-50, 50)
-b = Vector2(50, 50)
+a = Vector2(32, -32)
+b = Vector2(32, 32)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_24nny"]
+a = Vector2(-32, 32)
+b = Vector2(32, 32)
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_fmkex")
+_tiles = Vector2(2, 2)
 
 [node name="Pivot" type="StaticBody2D" parent="."]
 
@@ -30,18 +32,29 @@ script = ExtResource("1_fmkex")
 shape = SubResource("CircleShape2D_a8so1")
 
 [node name="Body" type="RigidBody2D" parent="."]
+lock_rotation = true
+angular_damp = 32.0
+
+[node name="Tiles" type="TileMapLayer" parent="Body"]
+scale = Vector2(0.25, 0.25)
+tile_set = ExtResource("2_fmkex")
+
+[node name="TilesOff" type="TileMapLayer" parent="Body"]
+position = Vector2(16, 16)
+scale = Vector2(0.25, 0.25)
+tile_set = ExtResource("2_fmkex")
 
 [node name="OutTop" type="CollisionShape2D" parent="Body"]
-shape = SubResource("SegmentShape2D_a8so1")
-
-[node name="OutLeft" type="CollisionShape2D" parent="Body"]
 shape = SubResource("SegmentShape2D_fmkex")
 
-[node name="OutRight" type="CollisionShape2D" parent="Body"]
+[node name="OutLeft" type="CollisionShape2D" parent="Body"]
 shape = SubResource("SegmentShape2D_sxdkt")
 
-[node name="OutBottom" type="CollisionShape2D" parent="Body"]
+[node name="OutRight" type="CollisionShape2D" parent="Body"]
 shape = SubResource("SegmentShape2D_i0ub7")
+
+[node name="OutBottom" type="CollisionShape2D" parent="Body"]
+shape = SubResource("SegmentShape2D_24nny")
 
 [node name="Holder" type="CollisionPolygon2D" parent="Body"]
 polygon = PackedVector2Array(10, 0, 7.07107, 7.07107, 6.12303e-16, 10, -7.07107, 7.07107, -10, 1.22461e-15, -7.07107, -7.07107, -1.83691e-15, -10, 7.07107, -7.07107, 10, 0, 15, -3.67382e-15, 10.6066, -10.6066, -2.75536e-15, -15, -10.6066, -10.6066, -15, 1.83691e-15, -10.6066, 10.6066, 9.18455e-16, 15, 10.6066, 10.6066, 15, 0)

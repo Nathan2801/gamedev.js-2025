@@ -1,12 +1,13 @@
 @tool extends Node2D
 
-@export var _size := Vector2(100, 100):
+@export var _tiles := Vector2(1, 1):
 	set(value):
-		_size = value
+		_tiles = value
 		_generate_borders()
 
 @onready var _body := $Body
 @onready var _holder := $Body/Holder
+@onready var _pivot_shape := $Pivot/Shape
 
 class RectOutlineCollision:
 	var top: SegmentShape2D
@@ -14,14 +15,24 @@ class RectOutlineCollision:
 	var bottom: SegmentShape2D
 	var right: SegmentShape2D
 
+func _ready() -> void:
+	_body.lock_rotation = true
+	
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			_body.lock_rotation = false
+
 @export_tool_button("Generate holder")
 var _generate_holderb := func(): _generate_holder()
 func _generate_holder() -> void:
 	var i := 0.0
 	var step := PI/4
 	var points := PackedVector2Array()
-	var in_multiplier := 10.0
-	var out_multiplier := 15.0
+	
+	var shape: CircleShape2D = _pivot_shape.shape
+	var in_multiplier: float = shape.radius + 1
+	var out_multiplier := in_multiplier + 5
 	
 	while i < PI * 2:
 		var point := Vector2(cos(i), sin(i)) * in_multiplier
@@ -64,7 +75,10 @@ func _make_rect(size: Vector2) -> RectOutlineCollision:
 	return out
 
 func _generate_borders() -> void:
-	var out_segments := _make_rect(_size)
+	if not is_node_ready():
+		return
+	var size := _tiles * 64
+	var out_segments := _make_rect(size)
 	if $Body/OutTop: $Body/OutTop.shape = out_segments.top
 	if $Body/OutLeft: $Body/OutLeft.shape = out_segments.left
 	if $Body/OutBottom: $Body/OutBottom.shape = out_segments.bottom

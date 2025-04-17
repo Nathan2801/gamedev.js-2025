@@ -9,6 +9,7 @@
 [node name="Map" parent="." instance=ExtResource("1_65205")]
 position = Vector2(573, 327)
 _size = Vector2(500, 500)
+_tiles = null
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 position = Vector2(597, 184)

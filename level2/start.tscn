@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7ijbk6sla3qv"]
+
+[ext_resource type="PackedScene" uid="uid://c1r3i1iynd4nb" path="res://level1/map.tscn" id="1_fkqxp"]
+[ext_resource type="PackedScene" uid="uid://t7p5fu0glcrs" path="res://common/plug.tscn" id="2_3xvgj"]
+[ext_resource type="PackedScene" uid="uid://gpqwoonrs2v7" path="res://common/box.tscn" id="3_f7uy0"]
+[ext_resource type="PackedScene" uid="uid://bkswrniygduk6" path="res://common/ball.tscn" id="4_ikykx"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Map" parent="." instance=ExtResource("1_fkqxp")]
+
+[node name="Plug" parent="Map/Body" index="7" instance=ExtResource("2_3xvgj")]
+position = Vector2(0, -160)
+
+[node name="Box" parent="." instance=ExtResource("3_f7uy0")]
+position = Vector2(0, 175)
+mass = 2.0
+
+[node name="Ball" parent="." instance=ExtResource("4_ikykx")]
+position = Vector2(144, 175)
+
+[editable path="Map"]

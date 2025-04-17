@@ -1,0 +1,19 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://clorlg7eawijp"]
+
+[ext_resource type="Texture2D" uid="uid://ddhl1c47wkbdq" path="res://assets/balance-tiles.png" id="1_l70by"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sxdkt"]
+texture = ExtResource("1_l70by")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+
+[resource]
+tile_size = Vector2i(128, 128)
+sources/1 = SubResource("TileSetAtlasSource_sxdkt")
