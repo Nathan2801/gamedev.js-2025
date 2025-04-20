@@ -16,7 +16,8 @@ position = Vector2(0, -160)
 
 [node name="Box" parent="." instance=ExtResource("2_idhjr")]
 position = Vector2(0, 175)
-mass = 2.0
+_kind = 0
+_active_key = 65
 
 [node name="Ball" parent="." instance=ExtResource("4_fibgb")]
 position = Vector2(144, 175)

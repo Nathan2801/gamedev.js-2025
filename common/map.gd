@@ -16,7 +16,7 @@ class RectOutlineCollision:
 	var right: SegmentShape2D
 
 func _ready() -> void:
-	_body.lock_rotation = true
+	_body.lock_rotation = false
 	
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:

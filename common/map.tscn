@@ -24,7 +24,6 @@ b = Vector2(32, 32)
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_fmkex")
-_tiles = Vector2(2, 2)
 
 [node name="Pivot" type="StaticBody2D" parent="."]
 
@@ -32,7 +31,6 @@ _tiles = Vector2(2, 2)
 shape = SubResource("CircleShape2D_a8so1")
 
 [node name="Body" type="RigidBody2D" parent="."]
-lock_rotation = true
 angular_damp = 32.0
 
 [node name="Tiles" type="TileMapLayer" parent="Body"]

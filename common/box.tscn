@@ -1,15 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://gpqwoonrs2v7"]
+[gd_scene load_steps=5 format=3 uid="uid://gpqwoonrs2v7"]
 
 [ext_resource type="Texture2D" uid="uid://ddhl1c47wkbdq" path="res://assets/balance-tiles.png" id="1_2m5od"]
-[ext_resource type="Script" uid="uid://d0yt7pwja52bv" path="res://test/movable.gd" id="2_q5gxo"]
+[ext_resource type="Script" uid="uid://c77oalvo0x0t" path="res://common/box.gd" id="1_q5gxo"]
+[ext_resource type="Script" uid="uid://d0yt7pwja52bv" path="res://common/movable.gd" id="2_q5gxo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2m5od"]
 size = Vector2(32, 32)
 
 [node name="Box" type="RigidBody2D"]
+modulate = Color(0.678431, 0.847059, 0.901961, 1)
 collision_layer = 3
+mass = 2.0
 contact_monitor = true
 max_contacts_reported = 1
+script = ExtResource("1_q5gxo")
+_kind = null
+_active_key = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_2m5od")
