@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7ijbk6sla3qv"]
+[gd_scene load_steps=6 format=3 uid="uid://c7ijbk6sla3qv"]
 
 [ext_resource type="Script" uid="uid://dtv3bqlg765ij" path="res://common/level.gd" id="1_fkqxp"]
 [ext_resource type="PackedScene" uid="uid://cfyvkv3x4b0sl" path="res://level2/map.tscn" id="3_7cyqo"]
 [ext_resource type="PackedScene" uid="uid://gpqwoonrs2v7" path="res://common/box.tscn" id="3_f7uy0"]
 [ext_resource type="PackedScene" uid="uid://bkswrniygduk6" path="res://common/ball.tscn" id="4_ikykx"]
+[ext_resource type="Script" uid="uid://bgj6vamsf1ghu" path="res://common/path.gd" id="5_3xvgj"]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_fkqxp")
@@ -16,5 +17,17 @@ script = ExtResource("1_fkqxp")
 position = Vector2(170, -146)
 
 [node name="Box" parent="." instance=ExtResource("3_f7uy0")]
-position = Vector2(144, 176)
+position = Vector2(144, 174)
 _active_key = 65
+
+[node name="Box2" parent="." instance=ExtResource("3_f7uy0")]
+position = Vector2(-144, 174)
+_active_key = 68
+
+[node name="Box3" parent="." instance=ExtResource("3_f7uy0")]
+position = Vector2(81, 174)
+_active_key = 83
+
+[node name="Path" type="Node2D" parent="."]
+script = ExtResource("5_3xvgj")
+metadata/_custom_type_script = "uid://bgj6vamsf1ghu"

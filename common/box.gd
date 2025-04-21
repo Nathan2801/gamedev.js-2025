@@ -1,6 +1,10 @@
 extends RigidBody2D
 class_name Box
 
+signal selected
+
+var _mouse_over := false
+
 enum Kind {One, Two, Three}
 @export var _kind: Kind = Kind.One:
 	set(value):
@@ -8,12 +12,13 @@ enum Kind {One, Two, Three}
 		_set_mass_based_on_kind()
 		_set_color_based_on_kind()
 
-@export var _active_key := KEY_NONE
-
 func _ready() -> void:
 	_set_mass_based_on_kind()
 	_set_color_based_on_kind()
 	
+	mouse_entered.connect(_mouse_entered)
+	mouse_exited .connect(_mouse_exited)
+
 func _process(delta: float) -> void:
 	if $Movable.is_active():
 		modulate = Color.INDIAN_RED
@@ -21,11 +26,16 @@ func _process(delta: float) -> void:
 		modulate = Color.WHITE
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventKey:
-		if event.keycode == _active_key:
+	if event is InputEventMouseButton:
+		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT and _mouse_over:
+			selected.emit()
 			$Movable.active()
-		else:
-			$Movable.deactive()
+
+func _mouse_entered() -> void:
+	_mouse_over = true
+
+func _mouse_exited() -> void:
+	_mouse_over = false
 
 func _set_mass_based_on_kind():
 	match _kind:

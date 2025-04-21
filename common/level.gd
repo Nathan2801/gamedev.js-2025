@@ -7,6 +7,7 @@ var _impulse_line := Vector2.ZERO
 
 func _ready() -> void:
 	_set_boxes()
+	_connect_boxes()
 	_connect_impulse_signals()
 
 func _input(event: InputEvent) -> void:
@@ -25,6 +26,14 @@ func _set_boxes() -> void:
 	for box in find_children("Box*"):
 		if box is Box:
 			_boxes.append(box)
+
+func _connect_boxes() -> void:
+	for box in _boxes:
+		box.selected.connect(_box_selected)
+
+func _box_selected() -> void:
+	for box in _boxes:
+		box.movable().deactive()
 
 func _impulse_started(body: RigidBody2D) -> void:
 	$Path.visible = true
