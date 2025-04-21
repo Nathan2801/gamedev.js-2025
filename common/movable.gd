@@ -1,8 +1,12 @@
 extends Node2D
 class_name Movable
 
+signal impulse_update(a: Vector2, b: Vector2)
+signal impulse_started(body: RigidBody2D)
+signal impulse_applied
+
 var _active := false
-var _being_hovered := false
+var _impulsionating := false
 var _impulse_origin := Vector2.ZERO
 var _impulse := Vector2.ZERO
 
@@ -18,29 +22,36 @@ var _max_range := Vector2(+_range, +_range)
 
 func _ready():
 	_target.input_pickable = true
-	_target.mouse_entered.connect(_hover)
-	_target.mouse_exited .connect(_unhover)
-	
-func _hover() -> void:
-	_being_hovered = true
-
-func _unhover() -> void:
-	_being_hovered = false
 
 func _input(event: InputEvent) -> void:
+	if not is_active():
+		return
 	if event is InputEventMouseMotion:
-		_impulse = event.position - _impulse_origin
-		_impulse = _impulse.clamp(_min_range, _max_range)
+		if _impulsionating:
+			_update_impulse(event.position)
 	elif event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
-			if event.pressed:
-				_impulse_origin = event.position
-			elif is_active() and _target.get_contact_count() > 0:
+			if event.pressed and _target.get_contact_count() > 0:
+				_start_impulse(event.position)
+			elif _impulsionating:
 				_apply_impulse()
 
+func _start_impulse(mouse: Vector2) -> void:
+	_impulsionating = true
+	_impulse_origin = mouse
+	impulse_started.emit(get_parent())
+	_update_impulse(mouse)
+
+func _update_impulse(mouse: Vector2) -> void:
+	_impulse = mouse - _impulse_origin
+	_impulse = _impulse.clamp(_min_range, _max_range)
+	impulse_update.emit(_impulse_origin, mouse)
+
 func _apply_impulse():
+	_impulsionating = false
 	_target.apply_impulse(_impulse * -1 * _target.mass)
 	_impulse_origin = Vector2.ZERO
+	impulse_applied.emit()
 
 func active() -> void:
 	_active = true

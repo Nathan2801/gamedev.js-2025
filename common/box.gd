@@ -1,4 +1,5 @@
 extends RigidBody2D
+class_name Box
 
 enum Kind {One, Two, Three}
 @export var _kind: Kind = Kind.One:
@@ -37,3 +38,6 @@ func _set_color_based_on_kind():
 		Kind.One:   modulate = Color.LIGHT_BLUE
 		Kind.Two:   modulate = Color.GOLD
 		Kind.Three: modulate = Color.INDIAN_RED
+
+func movable() -> Movable:
+	return $Movable as Movable
