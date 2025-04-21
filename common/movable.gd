@@ -4,6 +4,13 @@ class_name Movable
 var _active := false
 var _being_hovered := false
 var _impulse_origin := Vector2.ZERO
+@export var _range := 400:
+	set(value):
+		_range = value
+		_min_range = Vector2(-_range, -_range)
+		_max_range = Vector2(+_range, +_range)
+var _min_range := Vector2(-_range, -_range)
+var _max_range := Vector2(+_range, +_range)
 
 @onready var _target: RigidBody2D = get_parent()
 
@@ -24,8 +31,9 @@ func _input(event: InputEvent) -> void:
 			if event.pressed:
 				_impulse_origin = event.position
 			elif _active:
-				var impulse: Vector2
-				impulse = event.position - _impulse_origin
+				var mouse := Vector2(event.position)
+				var impulse := mouse - _impulse_origin
+				impulse = impulse.clamp(_min_range, _max_range)
 				_target.apply_impulse(impulse * -1 * _target.mass)
 				_impulse_origin = Vector2.ZERO
 

@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8s44isavb62p"]
+[gd_scene load_steps=4 format=3 uid="uid://b8s44isavb62p"]
 
 [ext_resource type="PackedScene" uid="uid://c1r3i1iynd4nb" path="res://level1/map.tscn" id="1_fibgb"]
 [ext_resource type="PackedScene" uid="uid://gpqwoonrs2v7" path="res://common/box.tscn" id="2_idhjr"]
 [ext_resource type="PackedScene" uid="uid://bkswrniygduk6" path="res://common/ball.tscn" id="4_fibgb"]
-[ext_resource type="PackedScene" uid="uid://t7p5fu0glcrs" path="res://common/plug.tscn" id="4_p0clp"]
 
 [node name="Level1" type="Node2D"]
 
@@ -11,15 +10,11 @@
 
 [node name="Map" parent="." instance=ExtResource("1_fibgb")]
 
-[node name="Plug" parent="Map/Body" index="7" instance=ExtResource("4_p0clp")]
-position = Vector2(0, -160)
-
 [node name="Box" parent="." instance=ExtResource("2_idhjr")]
+modulate = Color(0.678431, 0.847059, 0.901961, 1)
 position = Vector2(0, 175)
 _kind = 0
 _active_key = 65
 
 [node name="Ball" parent="." instance=ExtResource("4_fibgb")]
-position = Vector2(144, 175)
-
-[editable path="Map"]
+position = Vector2(0, -81)

@@ -1,4 +1,3 @@
-@tool
 extends RigidBody2D
 
 enum Kind {One, Two, Three}
