@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://c1r3i1iynd4nb"]
+[gd_scene load_steps=12 format=4 uid="uid://c1r3i1iynd4nb"]
 
 [ext_resource type="PackedScene" uid="uid://donnippwm4yr4" path="res://common/map.tscn" id="1_ort67"]
 [ext_resource type="TileSet" uid="uid://clorlg7eawijp" path="res://assets/tileset.tres" id="2_3ltp6"]
@@ -32,12 +32,6 @@ size = Vector2(32, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kokcw"]
 size = Vector2(32, 63)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pk5ba"]
-size = Vector2(32, 32)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cro2m"]
-size = Vector2(32, 31)
-
 [node name="Map" instance=ExtResource("1_ort67")]
 _tiles = Vector2(6, 6)
 
@@ -46,7 +40,7 @@ tile_map_data = PackedByteArray("AAD5//n/AQACAAAAAAD5//r/AQACAAAAAAD5//v/AQACAAA
 
 [node name="Tiles2" parent="Body" index="1"]
 scale = Vector2(0.25, 0.25)
-tile_map_data = PackedByteArray("AAD6//7/AQACAAAAAAD7//7/AQACAAAAAAD8//7/AQACAAAAAAD9//7/AQACAAAAAAD+//7/AQACAAAAAAD///7/AQACAAAAAAAAAP7/AQACAAAAAAABAP7/AQACAAAAAAACAP7/AQACAAAAAAADAP7/AQACAAAAAAAEAP7/AQACAAAAAAAFAP7/AQACAAAAAAA=")
+tile_map_data = PackedByteArray("AAD6//7/AQACAAAAAAD7//7/AQACAAAAAAD8//7/AQACAAAAAAD9//7/AQACAAAAAAD+//7/AQACAAAAAAD///7/AQACAAAAAAAAAP7/AQACAAAAAAABAP7/AQACAAAAAAACAP7/AQACAAAAAAADAP7/AQACAAAAAAAEAP7/AQACAAAAAAAFAP7/AQACAAAAAAD7////AQACAAAAAAD7/wAAAQACAAAAAAD+/wAAAQACAAAAAAD+/wEAAQACAAAAAAD8/wQAAQACAAAAAAD8/wUAAQACAAAAAAA=")
 tile_set = ExtResource("2_3ltp6")
 
 [node name="TilesOff" parent="Body" index="2"]
@@ -82,11 +76,3 @@ shape = SubResource("RectangleShape2D_e76sb")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Body" index="12"]
 position = Vector2(-112, 159)
 shape = SubResource("RectangleShape2D_kokcw")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Body" index="13"]
-position = Vector2(170, -10)
-shape = SubResource("RectangleShape2D_pk5ba")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="Body" index="14"]
-position = Vector2(170, 28)
-shape = SubResource("RectangleShape2D_cro2m")

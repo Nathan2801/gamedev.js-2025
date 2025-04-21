@@ -35,7 +35,7 @@ func _input(event: InputEvent) -> void:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
 				_impulse_origin = event.position
-			elif _target.get_contact_count() > 0:
+			elif is_active() and _target.get_contact_count() > 0:
 				_apply_impulse()
 
 func _apply_impulse():

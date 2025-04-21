@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8s44isavb62p"]
+[gd_scene load_steps=5 format=3 uid="uid://b8s44isavb62p"]
 
 [ext_resource type="PackedScene" uid="uid://c1r3i1iynd4nb" path="res://level1/map.tscn" id="1_fibgb"]
+[ext_resource type="Script" uid="uid://dtv3bqlg765ij" path="res://common/level.gd" id="1_p0clp"]
 [ext_resource type="PackedScene" uid="uid://gpqwoonrs2v7" path="res://common/box.tscn" id="2_idhjr"]
 [ext_resource type="PackedScene" uid="uid://bkswrniygduk6" path="res://common/ball.tscn" id="4_fibgb"]
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_p0clp")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
