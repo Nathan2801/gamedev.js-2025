@@ -24,6 +24,6 @@ texture = ExtResource("1_2m5od")
 region_enabled = true
 region_rect = Rect2(896, 0, 128, 128)
 
-[node name="Movable" type="Node" parent="."]
+[node name="Movable" type="Node2D" parent="."]
 script = ExtResource("2_q5gxo")
 metadata/_custom_type_script = "uid://d0yt7pwja52bv"
