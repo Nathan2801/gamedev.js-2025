@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://t7p5fu0glcrs"]
+[gd_scene load_steps=3 format=3 uid="uid://t7p5fu0glcrs"]
+
+[ext_resource type="Texture2D" uid="uid://ddhl1c47wkbdq" path="res://assets/balance-tiles.png" id="1_pu15h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fibgb"]
 radius = 16.0
@@ -9,3 +11,9 @@ collision_mask = 4
 
 [node name="Shape" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_fibgb")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_pu15h")
+region_enabled = true
+region_rect = Rect2(0, 128, 128, 128)
