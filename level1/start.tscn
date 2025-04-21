@@ -11,9 +11,7 @@
 [node name="Map" parent="." instance=ExtResource("1_fibgb")]
 
 [node name="Box" parent="." instance=ExtResource("2_idhjr")]
-modulate = Color(0.678431, 0.847059, 0.901961, 1)
 position = Vector2(0, 175)
-_kind = 0
 _active_key = 65
 
 [node name="Ball" parent="." instance=ExtResource("4_fibgb")]

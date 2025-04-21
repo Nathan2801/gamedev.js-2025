@@ -31,11 +31,14 @@ script = ExtResource("1_fmkex")
 shape = SubResource("CircleShape2D_a8so1")
 
 [node name="Body" type="RigidBody2D" parent="."]
+lock_rotation = true
 angular_damp = 32.0
 
 [node name="Tiles" type="TileMapLayer" parent="Body"]
 scale = Vector2(0.25, 0.25)
 tile_set = ExtResource("2_fmkex")
+
+[node name="Tiles2" type="TileMapLayer" parent="Body"]
 
 [node name="TilesOff" type="TileMapLayer" parent="Body"]
 position = Vector2(16, 16)
