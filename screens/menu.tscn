@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://lqw32hd5fkxg"]
+
+[ext_resource type="Script" uid="uid://dup1rk3mxwma" path="res://screens/menu.gd" id="1_dc0yw"]
+[ext_resource type="Script" uid="uid://5txkt3babd70" path="res://common/change_scene_button.gd" id="2_lt0en"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dc0yw")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0941176, 0.0941176, 0.0941176, 1)
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Itens" type="VBoxContainer" parent="Center"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Center/Itens"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "ROBERTO"
+
+[node name="Play" type="Button" parent="Center/Itens"]
+layout_mode = 2
+text = "PLAY"
+script = ExtResource("2_lt0en")
+_scene_path = "uid://cootb3gy87a1l"
+metadata/_custom_type_script = "uid://5txkt3babd70"
+
+[node name="Quit" type="Button" parent="Center/Itens"]
+layout_mode = 2
+text = "QUIT"
+
+[connection signal="pressed" from="Center/Itens/Quit" to="." method="_on_quit_pressed"]

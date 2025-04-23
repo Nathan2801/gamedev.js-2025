@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=3 uid="uid://cootb3gy87a1l"]
+
+[ext_resource type="Script" uid="uid://5txkt3babd70" path="res://common/change_scene_button.gd" id="1_ls7x4"]
+
+[node name="Levels" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0941176, 0.0941176, 0.0941176, 1)
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Levels" type="HBoxContainer" parent="Center"]
+layout_mode = 2
+
+[node name="Level1" type="Button" parent="Center/Levels"]
+layout_mode = 2
+text = "#1"
+script = ExtResource("1_ls7x4")
+_scene_path = "uid://b8s44isavb62p"
+metadata/_custom_type_script = "uid://5txkt3babd70"
+
+[node name="Level2" type="Button" parent="Center/Levels"]
+layout_mode = 2
+text = "#2"
+script = ExtResource("1_ls7x4")
+_scene_path = "uid://c7ijbk6sla3qv"
+metadata/_custom_type_script = "uid://5txkt3babd70"
+
+[node name="Menu" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "MENU"
+script = ExtResource("1_ls7x4")
+_scene_path = "uid://lqw32hd5fkxg"
+metadata/_custom_type_script = "uid://5txkt3babd70"

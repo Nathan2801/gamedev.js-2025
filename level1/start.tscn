@@ -15,7 +15,6 @@ script = ExtResource("1_p0clp")
 
 [node name="Box" parent="." instance=ExtResource("2_idhjr")]
 position = Vector2(0, 175)
-_active_key = 65
 
 [node name="Ball" parent="." instance=ExtResource("4_fibgb")]
 position = Vector2(0, -81)
