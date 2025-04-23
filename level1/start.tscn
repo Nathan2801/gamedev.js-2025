@@ -1,24 +1,29 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8s44isavb62p"]
+[gd_scene load_steps=7 format=3 uid="uid://b8s44isavb62p"]
 
 [ext_resource type="PackedScene" uid="uid://c1r3i1iynd4nb" path="res://level1/map.tscn" id="1_fibgb"]
 [ext_resource type="Script" uid="uid://dtv3bqlg765ij" path="res://common/level.gd" id="1_p0clp"]
 [ext_resource type="PackedScene" uid="uid://gpqwoonrs2v7" path="res://common/box.tscn" id="2_idhjr"]
 [ext_resource type="PackedScene" uid="uid://bkswrniygduk6" path="res://common/ball.tscn" id="4_fibgb"]
 [ext_resource type="Script" uid="uid://bgj6vamsf1ghu" path="res://common/path.gd" id="5_p0clp"]
+[ext_resource type="Script" uid="uid://bl36o3x0g0e7g" path="res://common/center_on_screen.gd" id="6_gxw1p"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_p0clp")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="Map" parent="." instance=ExtResource("1_fibgb")]
+position = Vector2(576, 324)
 
 [node name="Box" parent="." instance=ExtResource("2_idhjr")]
-position = Vector2(0, 175)
+position = Vector2(576, 484)
 
 [node name="Ball" parent="." instance=ExtResource("4_fibgb")]
-position = Vector2(0, -81)
+position = Vector2(576, 228)
 
 [node name="Path" type="Node2D" parent="."]
 script = ExtResource("5_p0clp")
 metadata/_custom_type_script = "uid://bgj6vamsf1ghu"
+
+[node name="CenterOnScreen" type="Node" parent="." node_paths=PackedStringArray("_target")]
+script = ExtResource("6_gxw1p")
+_target = NodePath("../Map")
+metadata/_custom_type_script = "uid://bl36o3x0g0e7g"
