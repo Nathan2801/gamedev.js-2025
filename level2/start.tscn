@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7ijbk6sla3qv"]
+[gd_scene load_steps=8 format=3 uid="uid://c7ijbk6sla3qv"]
 
 [ext_resource type="Script" uid="uid://dtv3bqlg765ij" path="res://common/level.gd" id="1_fkqxp"]
 [ext_resource type="PackedScene" uid="uid://cfyvkv3x4b0sl" path="res://level2/map.tscn" id="3_7cyqo"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bkswrniygduk6" path="res://common/ball.tscn" id="4_ikykx"]
 [ext_resource type="Script" uid="uid://bgj6vamsf1ghu" path="res://common/path.gd" id="5_3xvgj"]
 [ext_resource type="Script" uid="uid://bl36o3x0g0e7g" path="res://common/center_on_screen.gd" id="6_f7uy0"]
+[ext_resource type="PackedScene" uid="uid://cvdfqehkcbck7" path="res://screens/overlay.tscn" id="7_ikykx"]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_fkqxp")
@@ -30,3 +31,5 @@ metadata/_custom_type_script = "uid://bgj6vamsf1ghu"
 script = ExtResource("6_f7uy0")
 _target = NodePath("../Map")
 metadata/_custom_type_script = "uid://bl36o3x0g0e7g"
+
+[node name="Overlay" parent="." instance=ExtResource("7_ikykx")]

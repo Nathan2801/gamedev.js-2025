@@ -16,12 +16,23 @@ func _input(event: InputEvent) -> void:
 			reload()
 		elif event.keycode == KEY_ESCAPE:
 			get_tree().change_scene_to_file("res://screens/levels.tscn")
+	elif event is InputEventMouseButton:
+		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			_start()
 
 func _process(delta: float) -> void:
 	if _current_body:
 		$Path.a = _current_body.position
 		$Path.b = _current_body.position + _impulse_line
 	_redraw_path()
+
+func _start() -> void:
+	$Map.unlock()
+	$Overlay.start_timer()
+
+func _stop() -> void:
+	$Map.lock()
+	$Overlay.stop_timer()
 
 func _set_boxes() -> void:
 	_boxes.clear()
@@ -32,6 +43,8 @@ func _set_boxes() -> void:
 func _connect_boxes() -> void:
 	for box in _boxes:
 		box.selected.connect(_box_selected)
+		var f: Callable = $Overlay.increment_moves_count
+		box.movable().impulse_applied.connect(f)
 
 func _box_selected() -> void:
 	for box in _boxes:

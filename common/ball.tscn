@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkswrniygduk6"]
+[gd_scene load_steps=4 format=3 uid="uid://bkswrniygduk6"]
 
 [ext_resource type="Texture2D" uid="uid://ddhl1c47wkbdq" path="res://assets/balance-tiles.png" id="1_fnixj"]
+[ext_resource type="Script" uid="uid://b6eke8vwb1ehj" path="res://common/ball.gd" id="1_gjtpt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p7r6u"]
 radius = 16.0
@@ -8,6 +9,7 @@ radius = 16.0
 [node name="Ball" type="RigidBody2D"]
 collision_layer = 5
 collision_mask = 5
+script = ExtResource("1_gjtpt")
 
 [node name="Shape" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_p7r6u")
