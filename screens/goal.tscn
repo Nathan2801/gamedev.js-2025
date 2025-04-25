@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://q4ala38xa43w"]
+
+[ext_resource type="Script" uid="uid://csmviq5sq3d7" path="res://screens/goal.gd" id="1_kh06c"]
+
+[node name="Goal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kh06c")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0941176, 0.0941176, 0.0941176, 1)
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Items" type="VBoxContainer" parent="Center"]
+layout_mode = 2
+
+[node name="What" type="Label" parent="Center/Items"]
+layout_mode = 2
+text = "Your goal is to connect the two circles."
+
+[node name="Press" type="Label" parent="Center/Items"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.784314, 0.784314, 0.784314, 1)
+text = "Press mouse to continue."
+horizontal_alignment = 1

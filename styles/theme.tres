@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dpn0557ci22ur"]
+
+[ext_resource type="FontFile" uid="uid://cy00l7m7pk6j5" path="res://assets/friendlyscribbles.ttf" id="1_molii"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_molii"]
+
+[resource]
+default_font = ExtResource("1_molii")
+Button/styles/focus = SubResource("StyleBoxEmpty_molii")

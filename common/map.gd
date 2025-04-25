@@ -16,7 +16,7 @@ class RectOutlineCollision:
 	var right: SegmentShape2D
 
 func _ready() -> void:
-	lock()
+	_body.lock_rotation = true
 
 @export_tool_button("Generate holder")
 var _generate_holderb := func(): _generate_holder()
@@ -78,9 +78,6 @@ func _generate_borders() -> void:
 	if $Body/OutLeft: $Body/OutLeft.shape = out_segments.left
 	if $Body/OutBottom: $Body/OutBottom.shape = out_segments.bottom
 	if $Body/OutRight: $Body/OutRight.shape = out_segments.right
-
-func lock() -> void:
-	_body.lock_rotation = true
 
 func unlock() -> void:
 	_body.lock_rotation = false

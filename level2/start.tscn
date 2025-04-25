@@ -10,26 +10,26 @@
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_fkqxp")
+_complete_scene_path = "uid://desowc043y3ml"
 
-[node name="Map" parent="." instance=ExtResource("3_7cyqo")]
-position = Vector2(576, 324)
+[node name="CenterOnScreen" type="Node2D" parent="."]
+position = Vector2(324, 324)
+script = ExtResource("6_f7uy0")
+metadata/_custom_type_script = "uid://bl36o3x0g0e7g"
 
-[node name="Ball" parent="." instance=ExtResource("4_ikykx")]
-position = Vector2(736, 164)
+[node name="Map" parent="CenterOnScreen" instance=ExtResource("3_7cyqo")]
 
-[node name="Box" parent="." instance=ExtResource("3_f7uy0")]
-position = Vector2(704, 484)
+[node name="Ball" parent="CenterOnScreen" instance=ExtResource("4_ikykx")]
+position = Vector2(160, -160)
 
-[node name="Box2" parent="." instance=ExtResource("3_f7uy0")]
-position = Vector2(448, 484)
+[node name="Box" parent="CenterOnScreen" instance=ExtResource("3_f7uy0")]
+position = Vector2(-144, 160)
+
+[node name="Box2" parent="CenterOnScreen" instance=ExtResource("3_f7uy0")]
+position = Vector2(144, 160)
 
 [node name="Path" type="Node2D" parent="."]
 script = ExtResource("5_3xvgj")
 metadata/_custom_type_script = "uid://bgj6vamsf1ghu"
-
-[node name="CenterOnScreen" type="Node" parent="." node_paths=PackedStringArray("_target")]
-script = ExtResource("6_f7uy0")
-_target = NodePath("../Map")
-metadata/_custom_type_script = "uid://bl36o3x0g0e7g"
 
 [node name="Overlay" parent="." instance=ExtResource("7_ikykx")]

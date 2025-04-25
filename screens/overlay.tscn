@@ -1,26 +1,42 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvdfqehkcbck7"]
+[gd_scene load_steps=4 format=3 uid="uid://cvdfqehkcbck7"]
 
+[ext_resource type="Theme" uid="uid://dpn0557ci22ur" path="res://styles/theme.tres" id="1_0baqf"]
 [ext_resource type="Script" uid="uid://cyplk0thw2aga" path="res://screens/overlay.gd" id="1_ffp8v"]
+[ext_resource type="Script" uid="uid://dlsun30u7c128" path="res://common/time_label.gd" id="2_128pq"]
 
 [node name="Overlay" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 size_flags_horizontal = 4
+theme = ExtResource("1_0baqf")
 script = ExtResource("1_ffp8v")
 
-[node name="Info" type="VBoxContainer" parent="."]
+[node name="Margin" type="MarginContainer" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 
-[node name="Time" type="Label" parent="Info"]
+[node name="Info" type="VBoxContainer" parent="Margin"]
 layout_mode = 2
-text = "TIME: 00:00"
 
-[node name="Moves" type="Label" parent="Info"]
+[node name="RestartTip" type="Label" parent="Margin/Info"]
 layout_mode = 2
-text = "MOVES: 0"
+text = "R to restart"
+
+[node name="ResignTip" type="Label" parent="Margin/Info"]
+layout_mode = 2
+text = "ESC to resign"
+
+[node name="Time" type="Label" parent="Margin/Info"]
+layout_mode = 2
+text = "Time: 00:0.000"
+script = ExtResource("2_128pq")
+metadata/_custom_type_script = "uid://dlsun30u7c128"
+
+[node name="Moves" type="Label" parent="Margin/Info"]
+layout_mode = 2
+text = "Moves: 0"

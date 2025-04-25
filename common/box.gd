@@ -19,13 +19,14 @@ func _ready() -> void:
 	mouse_entered.connect(_mouse_entered)
 	mouse_exited .connect(_mouse_exited)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if $Movable.is_active():
 		modulate = Color.INDIAN_RED
 	else:
 		modulate = Color.WHITE
 
 func _input(event: InputEvent) -> void:
+	if true: return
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT and _mouse_over:
 			selected.emit()

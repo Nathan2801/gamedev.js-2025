@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://desowc043y3ml"]
+
+[ext_resource type="Script" uid="uid://ccu403s8g0qjj" path="res://screens/complete.gd" id="1_4hqpn"]
+[ext_resource type="Script" uid="uid://5txkt3babd70" path="res://common/change_scene_button.gd" id="1_26qcw"]
+[ext_resource type="Theme" uid="uid://dpn0557ci22ur" path="res://styles/theme.tres" id="1_rk01r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rk01r"]
+content_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v3t2t"]
+content_margin_bottom = 16.0
+
+[node name="Complete" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_rk01r")
+script = ExtResource("1_4hqpn")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0941176, 0.0941176, 0.0941176, 1)
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="VBoxContainer" parent="Center"]
+layout_mode = 2
+
+[node name="Level" type="Label" parent="Center/Container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rk01r")
+text = "Level 0"
+horizontal_alignment = 1
+
+[node name="Time" type="Label" parent="Center/Container"]
+layout_mode = 2
+text = "Time: 00:0.000"
+
+[node name="Moves" type="Label" parent="Center/Container"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_v3t2t")
+text = "Moves: 0"
+
+[node name="Levels" type="Button" parent="Center/Container"]
+layout_mode = 2
+text = "Levels"
+script = ExtResource("1_26qcw")
+_scene_path = "uid://cootb3gy87a1l"
+metadata/_custom_type_script = "uid://5txkt3babd70"

@@ -11,13 +11,21 @@ config_version=5
 [application]
 
 config/name="Balance"
-run/main_scene="uid://c7ijbk6sla3qv"
+run/main_scene="uid://lqw32hd5fkxg"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Utils="*res://utils/utils.gd"
+Globals="*res://common/globals.gd"
+
 [display]
 
+window/size/viewport_width=648
 window/size/resizable=false
+mouse_cursor/custom_image="uid://cvxn5xt3pyetm"
+mouse_cursor/custom_image_hotspot=Vector2(10, 8)
 
 [layer_names]
 

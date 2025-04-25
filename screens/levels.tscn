@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://cootb3gy87a1l"]
+[gd_scene load_steps=6 format=3 uid="uid://cootb3gy87a1l"]
 
+[ext_resource type="StyleBox" uid="uid://bambxtcnxpqqi" path="res://styles/level_button.tres" id="1_3t7xq"]
 [ext_resource type="Script" uid="uid://5txkt3babd70" path="res://common/change_scene_button.gd" id="1_ls7x4"]
+[ext_resource type="Theme" uid="uid://dpn0557ci22ur" path="res://styles/theme.tres" id="1_vdo2g"]
+[ext_resource type="Script" uid="uid://6ybplepqouaf" path="res://common/level_setter.gd" id="4_vdo2g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3t7xq"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
 
 [node name="Levels" type="Control"]
 layout_mode = 3
@@ -9,6 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_vdo2g")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -27,28 +37,44 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Levels" type="HBoxContainer" parent="Center"]
+[node name="Levels" type="GridContainer" parent="Center"]
 layout_mode = 2
+columns = 3
 
 [node name="Level1" type="Button" parent="Center/Levels"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
+theme_override_styles/normal = ExtResource("1_3t7xq")
 text = "#1"
 script = ExtResource("1_ls7x4")
 _scene_path = "uid://b8s44isavb62p"
 metadata/_custom_type_script = "uid://5txkt3babd70"
 
+[node name="LevelSetter" type="Node" parent="Center/Levels/Level1"]
+script = ExtResource("4_vdo2g")
+_level_number = 1
+metadata/_custom_type_script = "uid://6ybplepqouaf"
+
 [node name="Level2" type="Button" parent="Center/Levels"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
+theme_override_styles/normal = ExtResource("1_3t7xq")
 text = "#2"
 script = ExtResource("1_ls7x4")
 _scene_path = "uid://c7ijbk6sla3qv"
 metadata/_custom_type_script = "uid://5txkt3babd70"
 
+[node name="LevelSetter" type="Node" parent="Center/Levels/Level2"]
+script = ExtResource("4_vdo2g")
+_level_number = 2
+metadata/_custom_type_script = "uid://6ybplepqouaf"
+
 [node name="Menu" type="Button" parent="."]
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
-text = "MENU"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3t7xq")
+text = "Menu"
 script = ExtResource("1_ls7x4")
 _scene_path = "uid://lqw32hd5fkxg"
 metadata/_custom_type_script = "uid://5txkt3babd70"
