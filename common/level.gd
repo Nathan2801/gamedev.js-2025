@@ -49,7 +49,7 @@ func _complete() -> void:
 	$Overlay.stop_timer()
 	Globals.level_time = $Overlay.get_time()
 	Globals.level_moves = $Overlay.get_moves()
-	get_tree().change_scene_to_file(_complete_scene_path)
+	get_tree().change_scene_to_file.call_deferred(_complete_scene_path)
 
 func _set_boxes() -> void:
 	_boxes.clear()

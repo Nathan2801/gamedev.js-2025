@@ -1,0 +1,32 @@
+[gd_scene load_steps=8 format=3 uid="uid://ebcm643hqa7a"]
+
+[ext_resource type="Script" uid="uid://dtv3bqlg765ij" path="res://common/level.gd" id="1_timbv"]
+[ext_resource type="Script" uid="uid://bl36o3x0g0e7g" path="res://common/center_on_screen.gd" id="2_0xye0"]
+[ext_resource type="PackedScene" uid="uid://btlxamtekbten" path="res://level3/map.tscn" id="3_tin5o"]
+[ext_resource type="PackedScene" uid="uid://bkswrniygduk6" path="res://common/ball.tscn" id="4_mp2wr"]
+[ext_resource type="PackedScene" uid="uid://gpqwoonrs2v7" path="res://common/box.tscn" id="5_v7csx"]
+[ext_resource type="Script" uid="uid://bgj6vamsf1ghu" path="res://common/path.gd" id="6_jiwar"]
+[ext_resource type="PackedScene" uid="uid://cvdfqehkcbck7" path="res://screens/overlay.tscn" id="7_wcxwq"]
+
+[node name="Level3" type="Node2D"]
+script = ExtResource("1_timbv")
+_complete_scene_path = "uid://desowc043y3ml"
+
+[node name="CenterOnScreen" type="Node2D" parent="."]
+position = Vector2(324, 324)
+script = ExtResource("2_0xye0")
+metadata/_custom_type_script = "uid://bl36o3x0g0e7g"
+
+[node name="Map" parent="CenterOnScreen" instance=ExtResource("3_tin5o")]
+
+[node name="Ball" parent="CenterOnScreen" instance=ExtResource("4_mp2wr")]
+position = Vector2(160, -160)
+
+[node name="Box" parent="CenterOnScreen" instance=ExtResource("5_v7csx")]
+position = Vector2(-144, 160)
+
+[node name="Path" type="Node2D" parent="."]
+script = ExtResource("6_jiwar")
+metadata/_custom_type_script = "uid://bgj6vamsf1ghu"
+
+[node name="Overlay" parent="." instance=ExtResource("7_wcxwq")]

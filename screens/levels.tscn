@@ -69,6 +69,20 @@ script = ExtResource("4_vdo2g")
 _level_number = 2
 metadata/_custom_type_script = "uid://6ybplepqouaf"
 
+[node name="Button" type="Button" parent="Center/Levels"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("1_3t7xq")
+text = "#3"
+script = ExtResource("1_ls7x4")
+_scene_path = "uid://ebcm643hqa7a"
+metadata/_custom_type_script = "uid://5txkt3babd70"
+
+[node name="LevelSetter" type="Node" parent="Center/Levels/Button"]
+script = ExtResource("4_vdo2g")
+_level_number = 3
+metadata/_custom_type_script = "uid://6ybplepqouaf"
+
 [node name="Menu" type="Button" parent="."]
 layout_mode = 0
 offset_right = 8.0
