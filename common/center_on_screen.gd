@@ -11,6 +11,7 @@ func _action() -> void:
 func _ready() -> void:
 	if not Engine.is_editor_hint():
 		_center_on_viewport()
+	get_viewport().size_changed.connect(_center_on_viewport)
 
 func _center_on_editor() -> void:
 	var width: int = ProjectSettings.get_setting("display/window/size/viewport_width")
